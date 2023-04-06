@@ -1,0 +1,240 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+        <Title> Super Metroid Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<img id ="samus" height="740px" width="400px" src="https://c4.wallpaperflare.com/wallpaper/981/818/410/raf-grassetti-metroid-samus-aran-video-games-video-game-art-hd-wallpaper-preview.jpg">
+<audio src="sound/item.mp3" id="audio"></audio>
+
+<audio autoplay loop src = "https://fi.zophar.net/soundfiles/nintendo-snes-spc/super-metroid/02%20Theme%20of%20Super%20Metroid.mp3">
+</audio>
+<span id="msg"> The last metroid is in captivity...</span>
+<br>
+<span id="msg2"> The galaxy is at peace...</span>
+<br>
+<div class="bouton"><button onclick="show();show2();show3();playsound()" id="boutton">Access DataBase</button></div>
+
+<div id="image"> <img id = "samu" height=730px width=400px src = "https://c4.wallpaperflare.com/wallpaper/981/818/410/raf-grassetti-metroid-samus-aran-video-games-video-game-art-hd-wallpaper-preview.jpg">
+
+</div>
+    
+<div id= "menu"> 
+<button id="bouton1" onclick="playsound();togglestatus()">Status</button> 
+<button id="bouton2" onclick="playsound();toggleweapons()" >Weapons</button>
+<button id="bouton3" onclick="toggleennemies();toggleelist();playhud()" >Ennemies</button> 
+<button id="bouton4" onclick="playsound();togglenewrecruit()" >New recruit</button> 
+</div>
+<div id="status"><span id="statusname">SAMUS</span>
+<div id="contenaireenergybar">  
+<img src="icone/missile.png" height="16px" width="20px" id="missileicone">
+<img src="icone/energytank.png" height="16px" width="20px" id="energytankicone">
+<img src="icone/casque.png" height="26px" width="40px" id="helmeticone">
+    
+<span id="energynumber">99</span> 
+    
+<span id="missilecount">5/25</span>
+<span id="energytankcount">5/5</span>
+    
+<div id="energybar"></div>
+<div id="energysquare"></div>
+<div id="energysquare2"></div> 
+    
+<button id="selectorleft" onclick="prev3();playsound()">Previous</button>
+<button id="selectorright" onclick="next3();playsound()">Next</button> 
+
+ <button id="beamselectorleft" onclick="prevbeam();playsound()">Previous</button>   
+ <button id="beamselectorright" onclick="nextbeam();playsound()">Next</button>
+    
+ <button id="abilitiesselectorleft" onclick="prevbeam();playsound()">Previous</button>   
+ <button id="abilitiesselectorright" onclick="nextbeam();playsound()">Next</button>
+    
+
+</div><img id="statussamus" src="armure/status.jpeg" onclick ="playson()" height="200px" width="150px">
+<button id="buttonsuit" onclick="playsound();togglearmorselector();toggleselectorleft();toggleselectorright()">SUIT</button>
+<button id="buttonbeam" onclick="playsound();togglebeamselector();togglebeamselectorleft();togglebeamselectorright()">BEAM</button>
+<button id="buttonmorph" onclick="playsound();toggleabilitiesselector();toggleabilitiesselectorleft();toggleabilitiesselectorright()">POWER</button>
+
+<div id = "armorselector"> <img id="armorslider" src="armure/dark.png" height="200"width="150px" onclick="toggledarksuitvideo();toggledarksuitdescription();toggledarksuittext();playsound()">
+<img src="armure/varia.png" height="200px" width="150px" onclick="togglevariasuitvideo();togglevariasuitdescription();togglevariasuittext();playsound()"> <img src="armure/light.png" height="200px" width="150px" onclick="togglelightsuitvideo();togglelightsuitdescription();togglelightsuittext();playsound()">  <img src="armure/ped.png" height="200px" width="150px" onclick="togglepedsuitvideo();togglepedsuitdescription();togglepedsuittext();playsound()">
+<img src="armure/gravity.png" height="200px" width="150px" onclick="togglegravitysuitvideo();togglegravitysuitdescription();togglegravitysuittext();playsound()">  <img src="armure/dread.png" height="200px" width="150px"  onclick="toggledreadsuitvideo();toggledreadsuitdescription();toggledreadsuittext();playsound()"> <img src="armure/phazon.png" height="200px" width="150px" onclick="togglephazonsuitvideo();togglephazonsuitdescription();togglephazonsuittext();playsound()"> 
+<img src="armure/dreadvariasuit.png" height="200px" width="150px" id="dreadvariasuit"  onclick="toggledreadvariasuitvideo();toggledreadvariasuitdescription();playsound()"> <img src="armure/dreadgravitysuit.png" height="200px" width="150px" id="dreadgravitysuit" onclick="toggledreadgravitysuitvideo();toggledreadgravitysuitdescription();playsound()" >
+
+
+<div id="dreadgravitysuitvideo"> <video controls muted autoplay loop src="video/dreadgravitysuitvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="dreadgravitysuitdescription">  <video muted autoplay loop src="video/gravitysuitdescription.mp4" height="160px" width="400px"> </video> </div>
+
+<div id="dreadvariasuitvideo"> <video controls muted autoplay loop src="video/dreadvariasuitvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="dreadvariasuitdescription">  <video muted autoplay loop src="video/dreadvariasuitdescription.mp4" height="160px" width="400px"> </video> </div>
+
+    
+<div id="darksuitvideo"> <video controls muted autoplay loop src="video/darksuitvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="darksuitdescription">  <img src="video/darksuitdescription.jpg" height="160px" width="200px"></div>
+<div id="darksuittext"> The Dark Suit was created by the Luminoth to better defend themselves against Dark Aether's atmosphere, and was once worn by A-Kul. Samus acquires the Dark Suit after defeating the Dark Agon Wastes' energy guardians, the Amorbis, which ruptures the Dark Sphere and causes it to explode, revealing the Dark Suit encased within.
+
+The Dark Suit protects against dark vapor excreted by Ingclaws and filters out 80% of the corrosive effects of Dark Aether's atmosphere, so that Samus only loses 1.2 units of energy per second, as opposed to 6 per second with the Varia Suit. </div>
+    
+<div id="variasuitvideo"> <video controls muted autoplay loop src="video/variasuitvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="variasuitdescription">  <img src="armure/samusgif.gif" height="160px" width="200px"></div>
+<div id="variasuittext"> The Varia Suit (バリアスーツ, Baria Sūtsu?), alternatively referred to as Barrier Suit[1] and Varia Feature[2], is a Power Suit upgrade.
+
+Samus is most commonly depicted wearing this suit, but like many of her other upgrades, it is lost at or prior to the beginning of most games, requiring her to track the upgrade down at a later point in time. It is acquired by picking up an item, which is called the Varia in Metroid and Return of Samus.
+
+In general, the Varia Suit reduces damage taken and protects Samus Aran from extreme heat. The maximum temperature that the Varia Suit can protect against is unknown, but the Gravity Suit is generally required for some of the higher temperature liquids. The name "Varia" is a mistranslation of the word "barrier" (although the Return of Samus manual uses the correct translation), which describes its shielding properties; coincidentally, it also resembles the English words "variety" or "variable", referring to how the suit can handle a variety of temperatures, a trait demonstrated in Metroid Fusion. </div>
+    
+<div id="lightsuitvideo"> <video controls muted autoplay loop src="video/lightsuitvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="lightsuitdescription">  <img src="video/light.gif" height="160px" width="200px"></div>
+<div id="lightsuittext">  
+Samus Aran's Light Suit is a fusion of Luminoth and Chozo technology. Created by the Luminoth as the ultimate armor for fighting the Ing, it renders Samus completely invulnerable to the damaging effects of Dark Aether's atmosphere.
+
+The Light Suit itself is powered by the Light of Aether, and as such is only obtained after Samus has returned the planetary energy to all three temples. Once all three have been restored, U-Mos will give her the Light Suit upon her return to the Great Temple.
+
+The suit also allows Samus to traverse Dark Water without taking damage, as well as walk through swarms of Ingstorm and ride on Light Shafts. These beams of light teleport Samus between the four main temples, aiding her final quest in recovering the Sky Temple Keys. </div>
+    
+<div id="phazonsuitvideo"> <video controls muted autoplay loop src="video/phazonsuitvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="phazonsuitdescription">  <img src="video/phazonsuitdescription.jpg" height="160px" width="200px"></div>
+<div id="phazonsuittext">  The Phazon Suit (フェイゾンスーツ Feizon Sūtsu) is an upgrade to Samus Aran's Power Suit acquired in Metroid Prime and the game's final upgrade. While other suit upgrades involve the incorporation of advanced technological hardware, the Phazon Suit was the inadvertent result of the Power Suit being virally corrupted by Phazon upon defeating the Omega Pirate.
+
+It would later serve as the foundation for Dark Samus's body in the main games of the Metroid Prime series.The most distinguishing feature of the Phazon Suit was its uniquely dark color scheme: The armor covering the arms, legs and shoulders was entirely glossy black, while the helmet, torso and inner thighs were a dark silver-grey. Its visor was a bright orange, while the lights on the suit were crimson. Strangely, the Phazon Suit also emitted a slight aura that distorted the air around it, most likely due to radiation or the strength of its defensive shielding.  </div>
+    
+<div id="dreadsuitvideo"> <video controls muted autoplay loop src="video/dreadvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="dreadsuitdescription">  <img src="video/dreaddescription.gif" height="160px" width="200px"></div>
+<div id="dreadsuittext"> In Metroid Dread, Samus starts out with her Varia Suit, before an attack by Raven Beak downgrades her to a version reminescent of the Fusion Suit, but with a white and blue main motif instead of yellow and blue. Over the course of the game, Samus restores the Varia Suit (which in this game lacks the added immunity to low temperature, which is granted by the Gravity Suit instead) and eventually upgrades to the Gravity Suit. </div>
+    
+<div id="pedsuitvideo"> <video controls muted autoplay loop src="video/pedvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="pedsuitdescription">  <img src="video/peddescription.jpg" height="160px" width="200px"></div>           
+<div id="pedsuittext"> The Phazon Enhancement Device Suit is a Phazon Enhancement Device designed for Samus Aran. After Dark Samus corrupted her, Ghor, Rundas, and Gandrayda, their bodies began producing Phazon. The Galactic Federation rebuilt Samus' suit with their PED technology so that she may safely harness Phazon. Energy Units are replaced with Phazon Units, and exposure to some forms of Phazon will restore Samus' energy.
+
+The PED is similar to the Fusion Suit in that it melds Samus' Power Suit with GF technology. The PED is also described as a 'fusion' between GF and Chozo technology in its description.
+
+Thanks to the PED Suit, Samus can enter Hypermode and use Phazon against opponents. However, this costs one Energy Tank. If Samus remains in Hypermode for too long, she will overload and enter Corrupt Hypermode, meaning that she must expel her excess Phazon, and if it fills up completely she will transform into another Dark Samus, which leads to an automatic Game Over. If she is able to safely sustain Hypermode for too long, the suit's safety mechanism will automatically shut Hypermode down. Each time Samus' corruption grows, she is able to access a new ability. The initial ability Samus starts off with is the Hyper Beam, followed by the acquisition of the Hyper Ball, then the Hyper Missiles, and finally the Hyper Grapple.
+
+After the planet Phaaze was destroyed, all Phazon disappeared from Samus' body; as a result, her PED suit reverted back to its original colors, with no discoloration or other traces of Phazon corruption. After escaping Phaaze through the wormhole, Samus' suit apparently discarded the PED upgrade, as it had returned to its usual Varia Suit configuration by the time Samus flew past the bridge of the G.F.S. Olympus. </div>
+    
+<div id="gravitysuitvideo"> <video controls muted autoplay loop src="video/gravitysuitvideo.mp4" height="160px" width="400px"> </video> </div>
+<div id="gravitysuitdescription">  <img src="video/gravitysuitdescription.jpg" height="160px" width="200px"></div>
+<div id="gravitysuittext"> The Gravity Suit (グラビティスーツ Gurabiti Sūtsu) (Gravity Feature in Metroid: Other M) is an upgrade for Samus Aran's Power Suit. As its name implies, the Gravity Suit's primary function is to negate extreme gravitational effects around its wearer, such as zero gravity in space. When wearing the Gravity Suit, Samus is able to move unhindered in environments with abnormal gravity and negates the resistance that would normally be exerted on her in liquid environments. Depending on the version, the Gravity Suit may also impart some additional properties: The model found in Metroid Prime gave Samus a clearer view while underwater, whereas, in Super Metroid, Metroid Fusion, Metroid: Zero Mission, Samus Returns, and Metroid Dread the upgrade reduced the damage she took to a greater extent than the Varia alone and negated damage sustained from contacting magma. In Super Metroid, Metroid: Other M, Metroid: Zero Mission, and Metroid: Samus Returns, it was the final suit Samus acquired. </div>
+    
+    
+</div>
+
+<div id="beamselector">  <img id="beamslider" src="beam/beam_1.png" height="200px" width="150px"> 
+
+<img src="beam/beam_6.png" height="200px" width="150px"><img src="beam/beam_14.png" height="200px" width="150px">
+<img src="beam/beam_2.png" height="200px" width="150px"><img src="beam/beam_7.png" height="200px" width="150px"><img src="beam/beam_11.png" height="200px" width="150px"><img src="beam/beam_15.png" height="200px" width="150px">
+<img src="beam/beam_3.png" height="200px" width="150px"><img src="beam/beam_8.png" height="200px" width="150px"><img src="beam/beam_12.png" height="200px" width="150px"><img src="beam/beam_16.png" height="200px" width="150px">
+<img src="beam/beam_4.png" height="200px" width="150px"><img src="beam/beam_9.png" height="200px" width="150px"><img src="beam/beam_13.png" height="200px" width="150px">
+<img src="beam/beam_5.png" height="200px" width="150px">
+</div>
+
+<div id="abilitiesselector">
+ </div> 
+
+<div id="powerlist">
+    
+    
+<div id="morph">
+
+    
+<span id="morphtitle">MORPH</span>
+<br>
+<p>MORPH BALL</p>
+<p>BOMB</p>
+<p>CROSS BOMB</p>
+<p>POWER BOMB</p>
+</div>
+
+
+<div id="aeion">
+
+
+<span id="aeiontitle">AEION</span>
+<br>
+<p>PHANTOM CLOAK</p>
+<p>FLASH SHIFT</p>
+<p>PULSE RADAR</p>
+
+</div>
+
+<div id="misc">
+<span id="misctitle">MISC</span>
+<br>
+<p>SPIDER MAGNET</p>
+<p>SPEED BOOSTER</p>
+<p>SPACE JUMP</p>
+<p>SCREW ATTACK</p>
+    
+    
+</div>
+
+<span id="statusname2">SAMUS</span>
+<img id="statussamus2" src="armure/status.jpeg" onclick ="playson()" height="200px" width="150px">
+    
+    
+    
+</div>
+
+
+
+    
+</div>
+
+    
+<div id="weapons">weapons<br> <button onclick="prev2()">Prev </button>
+        <img onclick="playson()" id = "slider2" src= " https://content.instructables.com/F3E/SDNS/K2UY4CMR/F3ESDNSK2UY4CMR.png?auto=webp&fit=bounds&frame=1&width=1024&auto=webp&frame=1&height=300 " width="200px" height="100px" />
+            <button onclick="next2()"> Next </button> </div>
+
+<div id="newrecruit">NEW RECRUIT HERE</div>
+
+
+    
+<div id="ennemies" >
+         
+<div id="elist">
+    
+<button id="emmibutton" onclick="toggleemmiphoto();toggleemmidescription();toggleemmivideo();playsound()">E.M.M.I  </button> 
+<button id="ridleybutton" onclick="toggleridleyphoto();toggleridleydescription();toggleridleyvideo();playsound()">CORPIUS</button>
+<button id="darksamusbutton" onclick="toggledarksamusphoto();toggledarksamusdescription();toggledarksamusvideo();playsound()">KRAID</button>
+<button id="muzbybutton" onclick="togglemuzbyphoto();togglemuzbydescription();togglemuzbyvideo();playsound()">RAVEN BEAK</button>
+<button id="robotbutton" onclick="togglerobotphoto();togglerobotdescription();togglerobotvideo();playsound()">ROBOT SOLDIER</button>
+    
+</div>
+
+<div id="emmiphoto"><img src="ennemie/emmi.png" height="170px" width="200px" ></div>
+<div id="emmivideo"><video height="160px" width="400px" controls autoplay muted src="ennemie/emmi.mp4"> </video> </div>
+<div id="emmidescription"> 
+The E.M.M.I. were created from the strongest materials in the universe for research applications. Prior to the events of Dread, the Federation received a mysterious video message that indicated the survival of the X Parasites. Having traced the transmission to ZDR, a team of seven[1] E.M.M.I. are dispatched to investigate, but they vanish soon after arriving on the planet.
+
+Despite its roughly humanoid build, an E.M.M.I. can freely rotate its joints 360°, allowing it to contort its body in a variety of fashions; for example, it can turn around on the spot by rotating individual body parts instead of moving its feet to turn its entire body at once. When patrolling an area, it usually walks on all fours, using the sharp claws on its extremities to scale walls and ceilings. An E.M.M.I. is capable of jumping straight upward and clinging to the ceiling above. </div>
+
+<div id="ridleyphoto"><img src="ennemie/corpius.jpg" height="170px" width="200px"></div>
+<div id="ridleyvideo">  <video height="160px" width="400px" controls autoplay muted src="ennemie/corpius.mp4"> </video> </div>
+<div id="ridleydescription"> Corpius is a large, rather hideous creature. Since it has no legs, it crawls along the ground with its muscular arms and its upper body is slouched over. It has eight yellow eyes on the front of its face, which resembles tendrils forming a maw. Its main body is a turquoise color with claws for fingers, and a red backside which resembles exposed muscle. Its long tail has a ridged length and can be extended, similar to the Queen Metroid's long-necked attack in Metroid II: Return of Samus. Near the end of the tail is a bulb and a sharp point; the latter resembles that of Ridley and his adolescent form. Before Corpius spits projectiles, its chin will inflate much like a toad's.
+
+According to the secret Chozo Archives, Corpius was a wild creature native to Ghavoran, where it was hunted by Chozo Soldiers of the Mawkin tribe. </div>
+
+<div id="muzbyphoto"> <img src="ennemie/ravenbeak.png" height="170px" width="200px"></div> </div>
+<div id="muzbyvideo">  <video height="160px" width="400px" controls autoplay muted src="ennemie/ravenbeak.mp4"> </video> </div>
+<div id="muzbydescription">  Raven Beak (Ashkar Behek in the Chozo language[note 1]) was the Chozo leader of the Mawkin tribe. He was first introduced in Chozo Memories unlockable in Metroid: Samus Returns, and appears as the main antagonist of Metroid Dread.  </div>
+
+<div id="robotphoto"> <img src="ennemie/robot.png" height="170px" width="200px"></div> </div>
+<div id="robotvideo">  <video height="160px" width="400px" controls autoplay muted src="ennemie/robot.mp4"> </video> </div>
+<div id="robotdescription"> Robot Chozo Soldiers[1][2][3] (ロボット鳥人兵士?)[3] are Chozo-like battle automatons created by the Mawkin tribe. They were found on ZDR under the control of Raven Beak, appearing as mini-bosses several times to ambush Samus. Robot Chozo Soldiers can be seen in assembly throughout the background of the E.M.M.I. Zone in Cataris. They were presumably made as replacements for Raven Beak's organic Chozo Soldiers, required for their immunity to the widespread X pandemic. Raven Beak orders one to assassinate Quiet Robe after the latter divulges important information to Samus and deactivates the E.M.M.I.. </div>
+
+<div id="darksamusphoto"> <img src="ennemie/kraid.jpg" height="170px" width="200px"></div> 
+<div id="darksamusvideo">  <video height="160px" width="400px" controls autoplay muted src="ennemie/kraid.mp4"> </video> </div>
+<div id="darksamusdescription">  Kraid is a Space Pirate, and though his rank within the marauding race has never been officially stated, he is likely a high-ranked member and may even be a leader, as he is a prominent boss in his canon appearances. Notably, he is part of the original game's boss duo, the other being his comrade Ridley. </div>
+
+</div>
+
+
+
+<audio id="myAudio" src="son/pick.mp3"></audio>
+<audio src="son/HUD.mp3" id="hud"></audio>
+<script src="index.js"></script>
+
+</body>
+</html>
